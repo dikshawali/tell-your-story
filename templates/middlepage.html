@@ -22,9 +22,9 @@
                 {%for post_items in range(3)%}    
                     <div class="post-preview">
                         <a href="post/{{post_items.slug}}">
-                            <h2 class="post-title">{{all_post_var[post_items].title}}</h2>
+                            <h2 class="post-title">{{all_post_var[post_items+(3*pagestart)].title}}</h2>
                             <h3 class="post-subtitle">Problems look mighty small from 150 miles up</h3>
-                            <p>{{all_post_var[post_items].content[:100]}}</p>
+                            <p>{{all_post_var[post_items+(3*pagestart)].content[:100]}}</p>
                         </a>
                         <p class="post-meta">
                             Posted by

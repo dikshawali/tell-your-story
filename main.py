@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, session
 from flask_sqlalchemy import SQLAlchemy  
 from datetime import datetime
 import json
-from flask_mail import Mail
+# from flask_mail import Mail
 
 # import os
 
@@ -13,9 +13,8 @@ params = json.load(c)['params']
 #     print(f'{key} is the key n {value} is the value.\n')
 # print(params['local_uri'])
 
-
+pagenumber=0
 app=Flask(__name__)
-
 app.secret_key='my-secret-key'
 
 
@@ -45,9 +44,17 @@ class Posts(db.Model):
 @app.route('/')
 def home():
     all_posts=Posts.query.all()
-    return render_template('index.html', params=params, all_post_var=all_posts)
+    return render_template('index.html', params=params, all_post_var=all_posts, pagestart=pagenumber)
 
-
+@app.route('/<string:page_slug>', methods=['GET'])
+def post_page(page_slug):
+    all_posts=Posts.query.all()
+    total_post=len(all_posts)
+    total_post_possible=(int(page_slug)+1)*3
+    if (total_post_possible-total_post) <= 3 and (total_post_possible-total_post)>=0:
+        return render_template('lastpage.html', pagestart=int(page_slug), params=params, all_post_var=all_posts, total_post=total_post)
+    else:
+        return render_template('middlepage.html', pagestart=int(page_slug), params=params, all_post_var=all_posts)
 
 @app.route('/post/<string:post_slug>', methods=['GET'])
 def post_route(post_slug):
