@@ -6,8 +6,8 @@
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <div class="site-heading">
-                            <h1>Clean Blog</h1>
-                            <span class="subheading">A Blog Theme by Start Bootstrap</span>
+                            <h1>Tell your story</h1>
+                            <span class="subheading">A blog where you can write down your story.</span>
                         </div>
                     </div>
                 </div>
@@ -28,8 +28,8 @@
                         </a>
                         <p class="post-meta">
                             Posted by
-                            <a href="#!">Admin</a>
-                            on {{post_items.date}}
+                            <a href="#!">{{all_post_var[post_items+(params['no_of_pages']*pagestart)].author}}</a>
+                            on {{all_post_var[post_items+(params['no_of_pages']*pagestart)].date}}
                         
                     {%endfor%}
                     <!-- Divider-->

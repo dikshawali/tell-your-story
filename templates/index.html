@@ -6,8 +6,8 @@
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <div class="site-heading">
-                            <h1>Clean Blog</h1>
-                            <span class="subheading">A Blog Theme by Start Bootstrap</span>
+                            <h1>Tell your story</h1>
+                            <span class="subheading">A blog where you can write down your story.</span>
                         </div>
                     </div>
                 </div>
@@ -23,19 +23,18 @@
                     <div class="post-preview">
                         <a href="post/{{post_items.slug}}">
                             <h2 class="post-title">{{all_post_var[post_items].title}}</h2>
-                            <h3 class="post-subtitle">Problems look mighty small from 150 miles up</h3>
                             <p>{{all_post_var[post_items].content[:100]}}</p>
                         </a>
                         <p class="post-meta">
-                            Posted by
-                            <a href="#!">Admin</a>
-                            on {{post_items.date}}
+                           
+                            <a href="#!"> Posted by {{all_post_var[post_items].author}}</a>
+                            on {{all_post_var[post_items].date}}
                         
                     {%endfor%}
                     <!-- Divider-->
                     <hr class="my-4" />
                     <!-- Pager-->
-                    <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="/{{pagestart+1}}">Older Posts →</a></div>
+                    <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="/{{pagestart+1}}">Next Posts →</a></div>
                 </div>
             </div>
         </div>

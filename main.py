@@ -38,6 +38,7 @@ class Posts(db.Model):
     slug=db.Column(db.String(400), unique=True)
     content=db.Column(db.String(15), unique=True)
     date=db.Column(db.Date, unique=True)
+    author=db.Column(db.String(1000))
 
 
 

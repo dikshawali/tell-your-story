@@ -5,12 +5,12 @@
         "local_uri": "mysql://root:@localhost/newdbase",
         "prod_uri": "mysql://root:@localhost/prod_dbase",
         "fb_url": "https://www.facebook.com/",
-        "t_url": "https://twitter.com/",
+        "t_url": "https://twitter.com/diksha80582784",
         "gh_url": "https://github.com/dikshawali",
         "login_bg_img": "bg.jpg",
         "admin_username": "admin",
         "admin_password":"admin",
-        "no_of_pages": 3
+        "no_of_pages": 4
         
     }
 }
