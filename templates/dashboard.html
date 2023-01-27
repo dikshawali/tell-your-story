@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<header class="masthead" style="background-image: url('static/assets/img/home-bg.jpg')">
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="site-heading">
+                    <h1>Admin Page</h1>
+                    <span class="subheading">Here you can edit/add/delete blogs</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Main Content-->
+
+<div class="container px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center" >
+        <div class="col-md-10 col-lg-8 col-xl-7">
+            <div class="container" >
+                <h2>All Posts</h2>
+                <p>Following is the data of all posts present in this blog. You can edit/delete/add blogs as per your choice.</p>
+                <table class="table" >
+                  <thead>
+                    <tr>
+                      <th>Serial Number</th>
+                      <th>Title</th>
+                      <th>slug</th>
+                      <th>Edit</th>
+                      <th>Delete</th>
+
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for item in html_post %}
+                    <tr>
+                      <td>{{item.serial_no}}</td>
+                      <td>{{item.title}}</td>
+                      <td>{{item.slug}}</td>
+                      <td> <a href="edit/{{item.serial_no}}"><button class="btn btn-primary text-uppercase">Edit</button></a> </td>
+                      <td> <a href="delete/{{item.serial_no}}"><button class="btn btn-primary text-uppercase" >Delete</button></a> </td>
+                    </tr>      
+                    {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+        </div>
+    </div>
+</div>
+</div>
+
+{% endblock %}
