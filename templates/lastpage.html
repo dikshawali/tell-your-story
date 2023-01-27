@@ -19,12 +19,12 @@
                 <div class="col-md-10 col-lg-8 col-xl-7">
                     <!-- Post preview-->
 
-                {%for post_items in range((pagestart+1)*2, total_post)%}    
+                {%for post_items in range((pagestart)*params['no_of_pages'], total_post)%}    
                     <div class="post-preview">
                         <a href="post/{{post_items.slug}}">
                             <h2 class="post-title">{{all_post_var[post_items].title}}</h2>
                             <h3 class="post-subtitle">Problems look mighty small from 150 miles up</h3>
-                            <p>{{all_post_var[post_items-1].content[:100]}}</p>
+                            <p>{{all_post_var[post_items].content[:100]}}</p>
                         </a>
                         <p class="post-meta">
                             Posted by
@@ -38,8 +38,8 @@
                     <hr class="my-4" />
                     <!-- Pager-->
                     <div>
-                    <a class="btn btn-primary text-uppercase float-left" href="/{{pagestart+-1}}" style="text-align: left;">&larr; next Posts </a>
-                   <a class="btn btn-primary text-uppercase float-right" href="#" style="text-align: right;">previous Posts &rarr;</a>
+                    <a class="btn btn-primary text-uppercase float-left" href="/{{pagestart-1}}" style="text-align: left;">&larr; Previous Page</a>
+              
                 </div>
                     
             </div>

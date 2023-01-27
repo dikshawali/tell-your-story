@@ -44,14 +44,16 @@ class Posts(db.Model):
 @app.route('/')
 def home():
     all_posts=Posts.query.all()
-    return render_template('index.html', params=params, all_post_var=all_posts, pagestart=pagenumber)
+    return render_template('index.html', params=params, all_post_var=all_posts, pagestart=0)
 
 @app.route('/<string:page_slug>', methods=['GET'])
 def post_page(page_slug):
     all_posts=Posts.query.all()
     total_post=len(all_posts)
-    total_post_possible=(int(page_slug)+1)*3
-    if (total_post_possible-total_post) <= 3 and (total_post_possible-total_post)>=0:
+    total_post_possible=(int(page_slug)+1)*params['no_of_pages']
+    if page_slug == '0':
+        return render_template('index.html', params=params, all_post_var=all_posts, pagestart=0)
+    if (total_post_possible-total_post) <= params['no_of_pages'] and (total_post_possible-total_post)>=0:
         return render_template('lastpage.html', pagestart=int(page_slug), params=params, all_post_var=all_posts, total_post=total_post)
     else:
         return render_template('middlepage.html', pagestart=int(page_slug), params=params, all_post_var=all_posts)

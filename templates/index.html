@@ -19,7 +19,7 @@
                 <div class="col-md-10 col-lg-8 col-xl-7">
                     <!-- Post preview-->
 
-                {%for post_items in range(3)%}    
+                {%for post_items in range(params['no_of_pages'])%}    
                     <div class="post-preview">
                         <a href="post/{{post_items.slug}}">
                             <h2 class="post-title">{{all_post_var[post_items].title}}</h2>
